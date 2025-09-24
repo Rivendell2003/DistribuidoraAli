@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "525272801715",
+    "project_id": "suministroexpress-460f9",
+    "storage_bucket": "suministroexpress-460f9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525272801715:android:cbaf77edc87cb50090ebc6",
+        "android_client_info": {
+          "package_name": "com.example.distribuidoraali"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA11ZaYonvmpzEp0D9VE8s5ZZcd4knMLYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
