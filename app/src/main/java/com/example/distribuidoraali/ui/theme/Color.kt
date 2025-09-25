@@ -2,15 +2,15 @@ package com.example.distribuidoraali.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Paleta clara
-val Purple40 = Color(0xFF0D47A1)       // Azul profundo
-val PurpleGrey40 = Color(0xFF1976D2)   // Azul secundario
-val Pink40 = Color(0xFFE91E63)         // Rosa vibrante
+// Light Mode
+val Purple40 = Color(0xFF0D47A1)       // azules primarios
+val PurpleGrey40 = Color(0xFF1976D2)   // azules secundario
+val Pink40 = Color(0xFFE91E63)         // Rosa terciario
 
-// Paleta oscura
-val Purple80 = Color(0xFF90CAF9)       // Azul claro
-val PurpleGrey80 = Color(0xFFBBDEFB)   // Azul grisáceo
-val Pink80 = Color(0xFFF48FB1)         // Rosa suave
+// Dark Mode
+val Purple80 = Color(0xFF90CAF9)       // Azul claro primarios
+val PurpleGrey80 = Color(0xFFBBDEFB)   // Azul grisáceo secundario
+val Pink80 = Color(0xFFF48FB1)         // Rosa suave terciario
 
 // Extras
 val BackgroundLight = Color(0xFFF5F5F5)

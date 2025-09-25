@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Cálculo de Despacho"
+        android:text="@string/c_lculo_de_despacho"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/monto_total_de_la_compra_clp"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/textColorPrimary"
+            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +117,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="12dp"
-            android:text="Ubicación Estimada: Cargando..."
+            android:text="@string/ubicaci_n_estimada_cargando"
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 

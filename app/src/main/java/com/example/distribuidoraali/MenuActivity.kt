@@ -2,6 +2,7 @@ package com.example.distribuidoraali
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -12,6 +13,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import java.io.IOException
+import java.util.*
 import kotlin.math.*
 
 class MenuActivity : AppCompatActivity() {
@@ -20,6 +23,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
+    private lateinit var geocoder: Geocoder // Añadido: Instancia de Geocoder
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -35,6 +39,7 @@ class MenuActivity : AppCompatActivity() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
+        geocoder = Geocoder(this, Locale.getDefault()) // Añadido: Inicializa el Geocoder
 
         checkLocationPermission()
 
@@ -76,8 +81,24 @@ class MenuActivity : AppCompatActivity() {
                 binding.distanceTextView.text = "Distancia: $distanciaRedondeada km"
                 binding.resultTextView.text = "Costo del Despacho: $$costoRedondeado CLP"
 
-                // una  línea para actualizar el recuadro de ubicación mock por el momento
-                binding.locationTextView.text = "Ubicación: Lat ${String.format("%.4f", location.latitude)}, Lon ${String.format("%.4f", location.longitude)}"
+                // la logic para obtener la direccion del user en palabras sin lat. y long. d egps
+                try {
+                    val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+                    if (!addresses.isNullOrEmpty()) {
+                        val address = addresses[0]
+                        val street = address.thoroughfare ?: "Calle desconocida"
+                        val number = address.subThoroughfare ?: "S/N"
+                        val city = address.locality ?: "Ciudad desconocida"
+                        binding.locationTextView.text = "Ubicación: $street $number, $city"
+                        Log.d("MenuActivity", "Dirección obtenida: $street $number, $city")
+                    } else {
+                        binding.locationTextView.text = "Ubicación: No se pudo obtener la dirección."
+                        Log.d("MenuActivity", "No se encontró una dirección para las coordenadas.")
+                    }
+                } catch (e: IOException) {
+                    binding.locationTextView.text = "Ubicación: Error al obtener la dirección."
+                    Log.e("MenuActivity", "Error de geocodificación.", e)
+                }
 
                 guardarDatosDespachoEnFirebase(totalCompra, distanciaKm, costoDespacho)
 
@@ -89,8 +110,6 @@ class MenuActivity : AppCompatActivity() {
 
                 binding.distanceTextView.text = "Distancia: %.2f km".format(distanciaKm)
                 binding.resultTextView.text = "Costo del Despacho: $$costoDespacho CLP"
-
-                // Actualiza el recuadro con la información de prueba
                 binding.locationTextView.text = "Ubicación: (no disponible, usando valores de prueba)"
 
                 guardarDatosDespachoEnFirebase(totalCompra, distanciaKm, costoDespacho)

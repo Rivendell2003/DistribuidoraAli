@@ -5,4 +5,6 @@
     <string name="distancia_0_km">Distancia: 0 km</string>
     <string name="calcular_costo_de_despacho">Calcular Costo de Despacho</string>
     <string name="monto_total_de_la_compra_clp">Monto total de la compra (CLP)</string>
+    <string name="c_lculo_de_despacho">Cálculo de Despacho</string>
+    <string name="ubicaci_n_estimada_cargando">Ubicación Estimada: Cargando...</string>
 </resources>

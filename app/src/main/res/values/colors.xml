@@ -7,4 +7,11 @@
     <color name="black">#E7928255</color>
     <color name="white">#FFFFFF</color>
     <color name="text_field_background">#E0E0E0</color>
+    <color name="colorPrimary">#12456C</color>
+    <color name="colorAccent">#21A5E0</color>
+    <color name="colorBackground">#F8F8F8</color>
+    <color name="textColorPrimary">#333333</color>
+    <color name="textColorSecondary">#6C757D</color>
+    <color name="textFieldBackground">#E0E0E0</color>
+
 </resources>
