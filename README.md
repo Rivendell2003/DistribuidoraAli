@@ -1,4 +1,5 @@
 Introducción
+
 En el contexto actual del comercio electrónico y la logística, la eficiencia en la gestión de despachos es un factor importante para el éxito de cualquier negocio. La Distribuidora Ali busca modernizar sus procesos para ofrecer un servicio más ágil y transparente a sus clientes. Actualmente, el cálculo de los costos de envío se realiza de forma manual, lo que es propenso a errores y consume tiempo valioso.
 
 Para solucionar esta problemática, este proyecto propone el desarrollo de una aplicación móvil en Android que automatiza este proceso. La aplicación permitirá a los clientes ingresar el monto de su compra y, utilizando la geolocalización del teléfono, obtendrá de manera precisa la distancia a la bodega de la distribuidora.
@@ -33,9 +34,11 @@ Interfaz de Usuario (UI): El diseño de la interfaz se implementó utilizando XM
 Geolocalización: La obtención de la ubicación se manejó a través del Fused Location Provider Client, una API de Google que fusiona la información del GPS, Wi-Fi y redes móviles para obtener una ubicación precisa y optimizada.
 
 Conclusión
+
 La creación de esta aplicación para la Distribuidora Ali demuestra cómo la tecnología móvil puede resolver problemas operativos del mundo real. Al automatizar un proceso manual, no solo se elimina el error humano, sino que se proporciona un servicio más transparente y eficiente para el cliente final. La integración con Firebase sienta las bases para futuras mejoras, como la creación de un historial de compras, la gestión de perfiles de usuario y la posibilidad de implementar un sistema de pagos. Este proyecto ha sido un ejercicio valioso en la aplicación de conceptos de ingeniería de sistemas, desde la planificación de la arquitectura hasta la implementación y depuración del código, confirmando la viabilidad de la solución propuesta.
 
 Bibliografía
+
 Firebase Documentation. Google. Recuperado de https://firebase.google.com/docs
 
 Google Play Services Location API. Google. Recuperado de https://developers.google.com/android/guides/location
