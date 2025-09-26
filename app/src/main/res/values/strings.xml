@@ -7,4 +7,11 @@
     <string name="monto_total_de_la_compra_clp">Monto total de la compra (CLP)</string>
     <string name="c_lculo_de_despacho">Cálculo de Despacho</string>
     <string name="ubicaci_n_estimada_cargando">Ubicación Estimada: Cargando...</string>
+    <string name="no_tienes_cuenta_reg_strate">¿No tienes cuenta? Regístrate</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="inicia_sesi_n_para_continuar">Inicia sesión para continuar</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="toggle_theme_description" />
 </resources>

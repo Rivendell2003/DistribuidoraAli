@@ -4,38 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3A025E85"
+    android:background="#59390285"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/loginCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="767dp"
+        android:layout_height="353dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="525dp"
-            android:padding="24dp"
-            tools:ignore="TextSizeCheck">
+            android:layout_width="778dp"
+            android:layout_height="387dp"
+            android:padding="24dp">
 
             <TextView
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bienvenido"
-                android:textColor="#73FFAB00"
+                android:textColor="#A1887F"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,9 +42,9 @@
                 android:id="@+id/subtitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/inicia_sesi_n_para_continuar"
-                android:textColor="#73FFAB00"
+                android:textColor="#BCAAA4"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,21 +53,22 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="246dp"
-                android:layout_height="66dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusBottomStart="15dp"
                 app:boxCornerRadiusTopEnd="15dp"
                 app:boxCornerRadiusTopStart="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/subtitleTextView">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="690dp"
+                    android:layout_height="50dp"
                     android:hint="@string/correo_electr_nico"
                     android:inputType="textEmailAddress"
                     android:textColorHint="#757575"
@@ -79,8 +79,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="246dp"
-                android:layout_height="66dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusBottomStart="15dp"
@@ -93,8 +93,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="691dp"
+                    android:layout_height="49dp"
                     android:hint="@string/contrase_a"
                     android:inputType="textPassword"
                     tools:ignore="TextContrastCheck,TextContrastCheck,VisualLintTextFieldSize" />
@@ -104,17 +104,16 @@
             <Button
                 android:id="@+id/loginButton"
                 style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="240dp"
-                android:layout_height="67dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="346dp"
+                android:layout_height="55dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
                 android:text="@string/iniciar_sesi_n"
-                android:textColor="#73FFAB00"
+                android:textColor="#00EA4E"
                 app:cornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
 
             <Button
                 android:id="@+id/registerButton"
@@ -124,31 +123,18 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/no_tienes_cuenta_reg_strate"
                 android:textAllCaps="false"
-                android:textColor="#0091EA"
+                android:textColor="#82B1FF"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/loginButton" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <ImageButton
-        android:id="@+id/themeToggleButton"
-        android:layout_width="89dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/text_field_background"
-        android:contentDescription="@string/toggle_theme_description"
-        android:padding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_dark_mode_24b"
-        tools:ignore="SpeakableTextPresentCheck" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.distribuidoraali
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -8,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.distribuidoraali.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import androidx.appcompat.app.AppCompatDelegate
+import android.widget.ImageButton
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         // se Infla el layout usando View Binding para mejorar
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupThemeToggle() // Llama a la función Dark o Light Mode
 
         // se Inicializa la instancia de Firebase Authentication
         auth = FirebaseAuth.getInstance()
@@ -89,6 +95,23 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
+        }
+    }
+
+    private fun setupThemeToggle() {
+        val themeToggleButton = findViewById<ImageButton>(R.id.themeToggleButton)
+
+        themeToggleButton.setOnClickListener {
+            // Aca se verifica  el tema actual y cambia al opuesto
+            val isNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+
+            if (isNightMode) {
+                // Si está en modo oscuro, cambia a modo claro
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                // Si está en modo claro, cambia a modo oscuro
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
         }
     }
 }
