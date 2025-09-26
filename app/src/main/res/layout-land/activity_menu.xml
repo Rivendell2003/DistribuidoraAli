@@ -7,17 +7,38 @@
     android:padding="16dp"
     tools:context="com.example.distribuidoraali.MenuActivity">
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <ImageButton
+        android:id="@+id/themeToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="512dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/toggle_theme_description"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_dark_mode_24b"
+        app:tint="@color/icon_color" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="253dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         android:text="@string/c_lculo_de_despacho"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/totalCompraInputLayout"
@@ -25,52 +46,47 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:boxBackgroundColor="@color/text_field_background"
         app:boxCornerRadiusBottomEnd="15dp"
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopEnd="15dp"
         app:boxCornerRadiusTopStart="15dp"
-        app:boxBackgroundColor="@color/text_field_background"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/totalCompraEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/monto_total_de_la_compra_clp"
-            android:inputType="number"
-            android:textColor="@color/textColorPrimary"
-            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/calculateButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="270dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/calcular_costo_de_despacho"
         app:cornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalCompraInputLayout" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/distanceCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="306dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculateButton">
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/distanceTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:padding="12dp"
             android:text="@string/distancia_0_km"
@@ -80,19 +96,20 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/resultCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="306dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline"
         app:layout_constraintTop_toBottomOf="@+id/distanceCardView">
 
         <TextView
             android:id="@+id/resultTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="305dp"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:padding="16dp"
             android:text="@string/costo_del_despacho_0_clp"
@@ -102,19 +119,20 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/locationCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="309dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline"
         app:layout_constraintTop_toBottomOf="@+id/resultCardView">
 
         <TextView
             android:id="@+id/locationTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="307dp"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:padding="12dp"
             android:text="@string/ubicaci_n_estimada_cargando"
@@ -123,30 +141,34 @@
 
     <TextView
         android:id="@+id/distribuidoraLocationTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_width="361dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="48dp"
         android:gravity="center"
         android:text="@string/ubicaci_n_de_la_distribuidora_nquilpu_chile"
         android:textSize="14sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vertical_guideline"
         app:layout_constraintTop_toBottomOf="@+id/locationCardView" />
 
-    <ImageButton
-        android:id="@+id/themeToggleButton"
-        android:layout_width="46dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="612dp"
-        android:layout_marginEnd="144dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/toggle_theme_description"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/totalCompraEditText"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="55dp"
+        android:hint="@string/monto_total_de_la_compra_clp"
+        android:inputType="number"
+        android:textColor="@color/textColorPrimary"
+        android:textColorHint="#616161"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/locationCardView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_dark_mode_24b"
-        app:tint="@color/icon_color" />
+        app:layout_constraintVertical_bias="0.372"
+        tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

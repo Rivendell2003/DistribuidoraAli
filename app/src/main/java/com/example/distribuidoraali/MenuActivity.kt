@@ -2,11 +2,14 @@ package com.example.distribuidoraali
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import com.example.distribuidoraali.databinding.ActivityMenuBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -23,7 +26,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
-    private lateinit var geocoder: Geocoder // Añadido: Instancia de Geocoder
+    private lateinit var geocoder: Geocoder
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -39,9 +42,10 @@ class MenuActivity : AppCompatActivity() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
-        geocoder = Geocoder(this, Locale.getDefault()) // Añadido: Inicializa el Geocoder
+        geocoder = Geocoder(this, Locale.getDefault())
 
         checkLocationPermission()
+        setupThemeToggle()
 
         binding.calculateButton.setOnClickListener {
             calcularDespacho()
@@ -81,7 +85,6 @@ class MenuActivity : AppCompatActivity() {
                 binding.distanceTextView.text = "Distancia: $distanciaRedondeada km"
                 binding.resultTextView.text = "Costo del Despacho: $$costoRedondeado CLP"
 
-                // la logic para obtener la direccion del user en palabras sin lat. y long. d egps
                 try {
                     val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
                     if (!addresses.isNullOrEmpty()) {
@@ -171,5 +174,18 @@ class MenuActivity : AppCompatActivity() {
         val c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
         return radioTierraKm * c
+    }
+
+    private fun setupThemeToggle() {
+        val themeToggleButton = findViewById<ImageButton>(R.id.themeToggleButton)
+
+        themeToggleButton?.setOnClickListener {
+            val isNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+            if (isNightMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+        }
     }
 }

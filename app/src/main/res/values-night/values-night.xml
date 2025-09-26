@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="welcome_text">#73FFAB00</color>
+    <color name="login_button_text">#B400BFA5</color>
+    <color name="register_button_text">#0091EA</color>
+    <color name="background_color">#3A025E85</color>
+    <color name="card_background">#1C1C1C</color>
+    <color name="hint_text_color">#757575</color>
+    <color name="text_field_background">#616161</color>
+    <color name="primary_text_color">#FFFFFF</color>
+    <color name="textColorPrimary">@color/primary_text_color</color>
+    <color name="icon_color">#FFFFFF</color>
+
+</resources>
